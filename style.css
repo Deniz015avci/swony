@@ -1,3 +1,7 @@
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,23 +14,40 @@ body {
     min-height: 100%;
 }
 
+
+/* =========================
+   BODY
+========================= */
+
 body {
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background: #000;
-    color: #fff;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
+
+    background: #000;
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    isolation: isolate;
 }
+
+
+/* =========================
+   BACKGROUND VIDEO
+========================= */
 
 .background-video {
     position: fixed;
+
     top: 50%;
     left: 50%;
 
@@ -39,61 +60,147 @@ body {
 
     filter:
         grayscale(1)
-        contrast(1.5)
-        brightness(0.45);
+        contrast(1.9)
+        brightness(0.62);
 
-    z-index: -3;
+    z-index: -4;
 }
+
+
+/* =========================
+   OVERLAY
+========================= */
 
 .overlay {
     position: fixed;
+
     inset: 0;
 
     background:
         radial-gradient(
             circle at center,
-            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.12),
             rgba(0, 0, 0, 0.72)
         );
+
+    z-index: -3;
+}
+
+
+/* =========================
+   ARKA PLAN GLOW
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 900px;
+    height: 900px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.07),
+            transparent 65%
+        );
+
+    filter: blur(70px);
+
+    pointer-events: none;
 
     z-index: -2;
 }
 
+
+/* =========================
+   PROFILE CARD
+========================= */
+
 .profile-card {
+    position: relative;
+
     width: 90%;
     max-width: 430px;
 
-    padding: 38px;
+    padding: 40px 30px 34px;
 
     text-align: center;
 
     background:
         linear-gradient(
             145deg,
-            rgba(15, 15, 15, 0.92),
-            rgba(0, 0, 0, 0.88)
+            rgba(22, 22, 22, 0.88),
+            rgba(2, 2, 2, 0.92)
         );
 
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 22px;
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.28);
 
-    backdrop-filter: blur(14px);
+    border-radius: 24px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.8),
-        0 0 30px rgba(255, 255, 255, 0.04);
+        0 30px 90px rgba(0, 0, 0, 0.85),
+        0 0 35px rgba(255, 255, 255, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    overflow: hidden;
 }
+
+
+/* KART ÜSTÜNDE HAFİF PARLAKLIK */
+
+.profile-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -120px;
+    right: -120px;
+
+    width: 260px;
+    height: 260px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.08),
+            transparent 70%
+        );
+
+    filter: blur(30px);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   ONLINE
+========================= */
 
 .status {
     display: inline-flex;
     align-items: center;
+
     gap: 7px;
 
     margin-bottom: 18px;
 
-    color: #aaa;
+    color: #b8b8b8;
+
     font-size: 10px;
-    letter-spacing: 2px;
+
+    letter-spacing: 3px;
 }
 
 .dot {
@@ -101,115 +208,262 @@ body {
     height: 7px;
 
     border-radius: 50%;
+
     background: white;
 
     box-shadow:
         0 0 5px white,
-        0 0 12px rgba(255, 255, 255, 0.8);
+        0 0 12px rgba(255, 255, 255, 0.9),
+        0 0 22px rgba(255, 255, 255, 0.6);
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.avatar-wrapper {
+    width: 112px;
+    height: 112px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.35)
+        );
+
+    padding: 2px;
+
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.22),
+        0 0 45px rgba(255, 255, 255, 0.08);
 }
 
 .avatar {
-    width: 110px;
-    height: 110px;
-
-    display: block;
-    margin: 0 auto 20px;
+    width: 100%;
+    height: 100%;
 
     border-radius: 50%;
+
     object-fit: cover;
 
-    border: 2px solid white;
-
-    box-shadow:
-        0 0 0 5px rgba(255, 255, 255, 0.04),
-        0 0 30px rgba(255, 255, 255, 0.14);
+    background: #000;
 }
+
+
+/* =========================
+   TEXT
+========================= */
 
 h1 {
     font-size: 32px;
+
     margin-bottom: 4px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
 }
 
 .username {
-    color: #999;
+    color: #9a9a9a;
+
     font-size: 14px;
 }
 
 .role {
     margin-top: 10px;
 
-    color: #666;
+    color: #727272;
+
     font-size: 10px;
-    letter-spacing: 2.5px;
+
+    letter-spacing: 3px;
 }
 
 .bio {
-    margin: 25px 0 30px;
+    margin: 26px 0 30px;
 
-    color: #ccc;
-    line-height: 1.6;
+    color: #d1d1d1;
+
+    line-height: 1.65;
+
     font-size: 14px;
 }
+
+
+/* =========================
+   LINKS
+========================= */
 
 .links {
     display: flex;
     flex-direction: column;
+
     gap: 11px;
 }
 
 .link {
+    position: relative;
+
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 
     padding: 15px 17px;
 
     color: white;
-    background: rgba(255, 255, 255, 0.045);
 
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 10px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.28);
+
+    border-radius: 11px;
 
     text-decoration: none;
 
+    overflow: hidden;
+
     transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        color 0.2s ease;
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.link::before {
+    content: "";
+
+    position: absolute;
+
+    left: -120%;
+    top: 0;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.11),
+            transparent
+        );
+
+    transform: skewX(-25deg);
+
+    transition: left 0.5s ease;
+}
+
+.link:hover::before {
+    left: 150%;
 }
 
 .link:hover {
-    background: white;
-    color: black;
-
     transform: translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border-color:
+        rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 8px 30px
+        rgba(255, 255, 255, 0.08);
 }
 
-footer {
-    margin-top: 30px;
+.link-left {
+    display: flex;
+    align-items: center;
 
-    color: #555;
+    gap: 12px;
+}
+
+.link-left i {
+    width: 20px;
+
+    font-size: 20px;
+
+    text-align: center;
+}
+
+.arrow {
+    font-size: 19px;
+
+    transition:
+        transform 0.22s ease;
+}
+
+.link:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 32px;
+
+    color: #666;
+
     font-size: 11px;
+
     letter-spacing: 1px;
 }
 
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 500px) {
+
     body {
-        padding: 20px 0;
         overflow: auto;
+
+        padding: 25px 0;
     }
 
     .profile-card {
         width: 92%;
-        padding: 30px 22px;
+
+        padding:
+            32px
+            22px;
     }
 
-    .avatar {
-        width: 95px;
-        height: 95px;
+    .avatar-wrapper {
+        width: 98px;
+        height: 98px;
     }
 
     h1 {
         font-size: 28px;
     }
+
+    .background-video {
+        width: 100vw;
+        height: 100vh;
+    }
+
 }

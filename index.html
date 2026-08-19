@@ -1,83 +1,130 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Deniz | Links</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- ICONLAR -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 </head>
 
 <body>
 
+    <!-- ARKA PLAN VİDEOSU -->
     <video class="background-video" autoplay muted loop playsinline>
         <source src="background.mp4.mp4" type="video/mp4">
     </video>
 
+    <!-- KARARTMA -->
     <div class="overlay"></div>
 
+    <!-- PROFİL KARTI -->
     <main class="profile-card">
 
+        <!-- ONLINE -->
         <div class="status">
             <span class="dot"></span>
             ONLINE
         </div>
 
-        <img src="foto.jfif" alt="Profil fotoğrafı" class="avatar">
+        <!-- FOTOĞRAF -->
+        <div class="avatar-wrapper">
+            <img
+                src="foto.jfif"
+                alt="Profil fotoğrafı"
+                class="avatar"
+            >
+        </div>
 
+        <!-- İSİM -->
         <h1>Deniz</h1>
 
         <p class="username">@swony_</p>
 
-        <p class="role">WEB DEVELOPER • AUSTRIA</p>
+        <p class="role">
+            WEB DEVELOPER • AUSTRIA
+        </p>
 
+        <!-- BIO -->
         <p class="bio">
             Web geliştirme öğreniyorum.<br>
             Kendi projelerimi geliştiriyorum.
         </p>
 
+        <!-- BUTONLAR -->
         <div class="links">
 
             <a
                 href="https://discord.gg/mWffA7axF"
-                class="link"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="link"
             >
-                <span>Discord</span>
-                <span>→</span>
+                <div class="link-left">
+                    <i class="fa-brands fa-discord"></i>
+                    <span>Discord</span>
+                </div>
+
+                <span class="arrow">→</span>
             </a>
 
             <a
                 href="https://github.com/Deniz015avci"
-                class="link"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="link"
             >
-                <span>GitHub</span>
-                <span>→</span>
+                <div class="link-left">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </div>
+
+                <span class="arrow">→</span>
             </a>
 
-            <a href="#" class="link">
-                <span>Instagram</span>
-                <span>→</span>
+            <a
+                href="#"
+                class="link"
+            >
+                <div class="link-left">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
+                </div>
+
+                <span class="arrow">→</span>
             </a>
 
-            <a href="#" class="link">
-                <span>Steam</span>
-                <span>→</span>
+            <a
+                href="#"
+                class="link"
+            >
+                <div class="link-left">
+                    <i class="fa-brands fa-steam"></i>
+                    <span>Steam</span>
+                </div>
+
+                <span class="arrow">→</span>
             </a>
 
         </div>
 
+        <!-- FOOTER -->
         <footer>
             © 2026 Deniz
         </footer>
 
     </main>
 
+    <script src="script.js"></script>
+
 </body>
 
 </html>
-<!-- redeploy -->
